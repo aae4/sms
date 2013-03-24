@@ -14,11 +14,12 @@
       			<%= f.text_area :body, :class => 'text_area', :size => "30x10" %>
     		</div>
   		</div>
+  		<%= f.hidden_field :service_id, :value => current_service.id %>
   	</td>
   	<td>
   		<div class = 'add_user_to_message'>
 		<!--%= select 'service', 'user_id', User.find(:all).collect {|u| [u.name, u.id]}, :prompt => "Select User" %-->
-		<% for user in User.find(:all) %>
+		<% for user in current_service.users %>
 			<div>
   			<%= check_box_tag "message[user_ids][]", user.id, current_service.users.include?(user) %>
   			<%= user.name %> | <%= user.phone %> 

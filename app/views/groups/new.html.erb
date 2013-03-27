@@ -1,0 +1,15 @@
+<h2>New</h2>
+<%= form_for @group do |f|%>
+	<% f.label :name%>
+	<%= f.text_field :name %>
+	<div class = 'add_user_to_message'>
+		<% for user in current_service.users %>
+			<div>
+  			<%= check_box_tag "group[user_ids][]", user.id, current_service.users.include?(user) %>
+  			<%= user.name %> | <%= user.phone %> 
+			</div>
+		<% end %>
+		<%= link_to "Добавить", users_new_path, :class => 'btn' %>
+  	</div>
+	<%= f.submit %>
+<% end %>

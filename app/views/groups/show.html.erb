@@ -1,0 +1,6 @@
+<h1><%= @group.name%></h1>
+<ul>
+	<% @group.users.each do |gu|%>
+		<li><%=gu.name%> | <%=gu.phone%></li>
+	<%end%>
+</ul>

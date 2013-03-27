@@ -1,4 +1,10 @@
 Sms::Application.routes.draw do
+  get "groups/index"
+
+  get "groups/edit"
+
+  get "groups/show"
+
   #get "users/index"
 
   get "users/new", :as => :users_new
@@ -11,7 +17,8 @@ Sms::Application.routes.draw do
   get "home/help", :as => :home_help
   
   get "messages/new", :as => :messages_new
-
+  
+  resources :groups
   resources :messages
   resources :users
 

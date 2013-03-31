@@ -11,3 +11,28 @@
  *= require_self
  *= require_tree .
  */
+.scroll_checklist {
+	 overflow-y:auto;
+	 width:250px; 
+	 height: 200px; 
+	 overflow-y: scroll; 
+}
+
+.scroll_checklist  th{
+	text-align: left;
+}
+.contact_list{
+	padding: 20px 0;
+	margin-left: 20px;
+	float:left;
+}
+.contact_group_list{
+ 	padding: 20px 0;
+ 	float:left;
+ 	margin-left: 50px;
+}
+.message{
+	float:left;
+ 	padding: 20px 0;
+ 	margin-left: 50px;
+}

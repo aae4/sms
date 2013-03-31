@@ -11,10 +11,28 @@
 	<div class="navbar-inner">
 		<%= link_to "Sms-Sender", home_path, :class => 'brand'%>
 		<ul class="nav">
-			<li><%= link_to "Messages", messages_path%></li>
-			<li><%= link_to "User Groups", groups_path%></li>
-			<li><%= link_to "Users", users_path%></li>
-			<li><%= link_to "Help", home_help_path%></li>
+			<% if service_signed_in? %>
+				<li>
+					<%= link_to messages_path do %>
+						<i class="icon-envelope"></i> Сообщения
+					<%end%>
+				</li>
+				<li>
+					<%= link_to groups_path do %>
+						<i class="icon-list-alt"></i> Группы контактов
+					<%end%>
+				</li>
+				<li>
+				<%= link_to users_path do %>
+	  				<i class="icon-user"></i> Контакты
+				<% end %>
+				</li>
+			<% end %>
+			<li>
+				<%= link_to home_help_path do %>
+					<i class="icon-info-sign"></i> Помощь
+				<%end%>
+			</li>
 		</ul>
 	</div>
 </div>
@@ -22,8 +40,8 @@
 	<div class="row">
 		<div class="span9"><%= yield %></div>
 		<div class="span3">
-			<h2>Something else</h2>
-			Some text, i dont know.
+			<h2>SMS</h2>
+			<%= render :partial => 'shared/smsinfo'%>
 		</div>
 	</div>
 </div>

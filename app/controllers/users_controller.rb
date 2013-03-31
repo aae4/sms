@@ -3,6 +3,11 @@ class UsersController < ApplicationController
   
   def index
     @users = current_service.users
+    respond_to do |format|
+      format.html
+      format.xml {render xml: @users}
+      format.json {render json: @users}
+    end
   end
 
   def new

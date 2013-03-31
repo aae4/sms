@@ -30,7 +30,7 @@
 					<% for group in Group.all %>
 						<tr>
 				  			<td><%= group.name %></td>
-				  			<td><%= check_box_tag "message[group_ids][]", group.id, Group.all.include?(group) %></td>
+				  			<td><!--%= check_box_tag "message[group_ids][]", group.id, Group.all.include?(group) %--></td>
 						</tr>
 					<% end %>
 				</table>

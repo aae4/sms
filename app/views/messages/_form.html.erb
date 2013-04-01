@@ -1,47 +1,80 @@
 <%= form_for @message, :html => { :class => 'form-horizontal' } do |f| %>
-	<div class="contact_list">
-			<h3>Список контактов</h3>
-			<div class='scroll_checklist'>
-				<table>
-					<tr>
-						<th>Имя</th>
-						<th>Номер</th>
-						<th>Выбрать</th>
-					</tr>
-					<% for user in current_service.users %>
-					<tr>
-				  		<td class="badge badge-success"><%= user.name %></td>
-				  		<td><%= user.phone %></td>
-				  		<td align="right"><%= check_box_tag "message[user_ids][]", user.id, current_service.users.include?(user) %></td> 
-					</tr>
-					<% end %>
-				</table>
+ 	<div class="accordion-group">
+ 		<div class="accordion-heading">
+ 			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+				<h4>Список контактов</h4>
+ 			</a>
+ 		</div>
+ 		<div id="collapseOne" class="accordion-body collapse in">
+	 		<div class="accordion-inner">
+				<div class="contact_list">
+					<!--h3>Список контактов</h3-->
+					<div class='scroll_checklist'>
+						<table>
+							<tr>
+								<th>Имя</th>
+								<th>Номер</th>
+								<th>Выбрать</th>
+							</tr>
+							<% for user in current_service.users %>
+							<tr>
+						  		<td class="label label-success"><%= user.name %></td>
+						  		<td><%= user.phone %></td>
+						  		<td align="right"><%= check_box_tag "message[user_ids][]", user.id, current_service.users.include?(user) %></td> 
+							</tr>
+							<% end %>
+						</table>
+					</div>
+			  		<!--%= link_to "Добавить", users_new_path, :class => 'btn' %-->
+				</div>
+ 			</div>
+ 		</div>
+	</div>
+	<div class="accordion-group">
+		<div class="accordion-heading">
+			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+				 <h4>Группы контактов</h4>
+			</a>
+		</div>
+		<div id="collapseTwo" class="accordion-body collapse">
+			<div class="accordion-inner">
+				<div class="contact_group_list">
+			  		<!--h3>Группы контактов</h3-->
+			  		<div class='scroll_checklist'>
+					  	<table>
+							<tr>
+								<th>Название</th>
+								<th>Выбрать</th>
+							</tr>
+							<% for group in Group.all %>
+								<tr>
+						  			<td><%= group.name %></td>
+						  			<td><!--%= check_box_tag "message[group_ids][]", group.id, Group.all.include?(group) %--></td>
+								</tr>
+							<% end %>
+						</table>
+					</div>
+				</div>
 			</div>
-	  		<!--%= link_to "Добавить", users_new_path, :class => 'btn' %-->
+		</div>
 	</div>
-	<div class="contact_group_list">
-	  		<h3>Группы контактов</h3>
-	  		<div class='scroll_checklist'>
-			  	<table>
-					<tr>
-						<th>Название</th>
-						<th>Выбрать</th>
-					</tr>
-					<% for group in Group.all %>
-						<tr>
-				  			<td><%= group.name %></td>
-				  			<td><!--%= check_box_tag "message[group_ids][]", group.id, Group.all.include?(group) %--></td>
-						</tr>
-					<% end %>
-				</table>
+	<div class="accordion-group">
+		<div class="accordion-heading">
+			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+				<h4>Текст сообщения</h4>
+			</a>
+		</div>
+		<div id="collapseThree" class="accordion-body collapse">
+			<div class="accordion-inner">
+				<div class="message-box">
+				    	<!--h3>Текст сообщения</h3-->
+				      	<%= f.text_area :body, :class => 'text_area', :size => "30x10" %>
+				  		<%= f.hidden_field :service_id, :value => current_service.id %>
+				</div>
 			</div>
+		</div>
 	</div>
-	<div class="message">
-	    	<h3>Текст сообщения</h3>
-	      	<%= f.text_area :body, :class => 'text_area', :size => "30x10" %>
-	  		<%= f.hidden_field :service_id, :value => current_service.id %>
-	</div>
-	<div class="form-actions">
+	<div class="new-message-buttons">
 	    <%= f.submit nil, :class => 'btn btn-primary' %>
 	    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
 	                messages_path, :class => 'btn' %>

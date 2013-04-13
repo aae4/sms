@@ -10,6 +10,7 @@ gem 'pg', :group => :production
 gem 'therubyracer'
 gem 'less-rails'
 gem 'devise'
+gem 'client_side_validations'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -20,9 +21,8 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
-  gem 'twitter-bootstrap-rails'
 end
-
+gem 'twitter-bootstrap-rails'
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password

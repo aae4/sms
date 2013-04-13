@@ -11,6 +11,12 @@
  *= require_self
  *= require_tree .
  */
+#background
+div {
+	background: #f60;
+  background-color: #f5f5f5;
+}
+
 #message_views
 .new-message{
 	/*padding:19px 20px 20px;*/
@@ -57,4 +63,23 @@
 }
 .pull-right {
   float: right;
+}
+
+.field_with_errors .message {  
+  color: #D00;  
+  padding-left: 5px;  
+  font-size: 12px;  
+}
+
+.signin-form{
+	border-radius: 6px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+}
+
+.signin-form .control-label{
+	padding-left: 10px;  
+}
+.signin-form .field{
+	padding-left: 10px;  
 }

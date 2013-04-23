@@ -1,0 +1,9 @@
+ru:
+  activerecord:
+    errors:
+      models:
+        group:
+          attributes:
+            name:
+              blank: "Не может быть пустым"
+              taken: "Группа с таким названием уже существует"

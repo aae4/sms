@@ -56,6 +56,10 @@ div {
  	padding: 20px 0;
  	margin-left: 20px;
 }
+.message-input-field{
+	height: 200px;
+	width: 600px;
+}
 #application
 .nav-sign{
 	position:absolute;

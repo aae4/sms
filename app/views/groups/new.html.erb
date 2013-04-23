@@ -1,15 +1,39 @@
-<h2>New</h2>
-<%= form_for @group do |f|%>
-	<% f.label :name%>
-	<%= f.text_field :name %>
-	<div class = 'add_user_to_message'>
-		<% for user in current_service.users %>
-			<div>
-  			<%= check_box_tag "group[user_ids][]", user.id, current_service.users.include?(user) %>
-  			<%= user.name %> | <%= user.phone %> 
-			</div>
-		<% end %>
-		<%= link_to "Добавить", users_new_path, :class => 'btn' %>
-  	</div>
-	<%= f.submit %>
+<h2>Создать группу</h2>
+<%= form_for @group, :validate => true do |f|%>
+  <div class="control-group form-inline">
+  	<% f.label :name %>
+  	<%= f.text_field :name %>
+  </div>
+
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+        <h4>Список контактов</h4>
+      </a>
+    </div>
+    <div id="collapseOne" class="accordion-body collapse in">
+      <div class="accordion-inner">
+        <div class="contact_list">
+          <!--h3>Список контактов</h3-->
+          <div class='scroll_checklist'>
+            <table>
+              <tr>
+                <th>Имя</th>
+                <th>Номер</th>
+                <th>Выбрать</th>
+              </tr>
+              <% for user in current_service.users %>
+              <tr>
+                  <td class="label label-success"><%= user.name %></td>
+                  <td><%= user.phone %></td>
+                  <td align="right"><%= check_box_tag "group[user_ids][]", user.id, current_service.users.include?(user) %></td> 
+              </tr>
+              <% end %>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= f.submit "Создать", :class => 'btn btn-primary' %>
 <% end %>

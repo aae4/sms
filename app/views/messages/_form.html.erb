@@ -46,7 +46,7 @@
 								<th>Название</th>
 								<th>Выбрать</th>
 							</tr>
-							<% for group in Group.all %>
+							<% for group in current_service.groups %>
 								<tr>
 						  			<td><%= group.name %></td>
 						  			<td><!--%= check_box_tag "message[group_ids][]", group.id, Group.all.include?(group) %--></td>
@@ -68,7 +68,7 @@
 			<div class="accordion-inner">
 				<div class="message-box">
 				    	<!--h3>Текст сообщения</h3-->
-				      	<%= f.text_area :body, :class => 'text_area message-input-field' %>
+				      <%= f.text_area :body, :class => 'text_area message-input-field' %>
 				  		<%= f.hidden_field :service_id, :value => current_service.id %>
 				</div>
 			</div>

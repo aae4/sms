@@ -51,7 +51,8 @@
 </div>
 <div class="container">
 	<div class="row">
-		<div class="span7"><%= yield %></div>
+	  <div class="bs-docs-sidebar"><!--%= render :partial => 'shared/leftbar' %--></div>
+		<div class="span9"><%= yield %></div>
 		<div class="right-bar span3">
 			<h2>SMS</h2>
 			<%= render :partial => 'shared/smsinfo'%>

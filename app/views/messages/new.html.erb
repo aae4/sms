@@ -1,20 +1,30 @@
 <%- model_class = Message -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => ["Создать Рассылку"], :model => model_class.model_name.human %></h1>
-</div>
-<div class="new-message">
-  <ul class="nav nav-tabs">
-    <li><a href="#home" data-toggle="tab">Home</a></li>
-    <li><a href="#profile" data-toggle="tab">Profile</a></li>
-    <li><a href="#messages" data-toggle="tab">Messages</a></li>
-    <li><a href="#settings" data-toggle="tab">Settings</a></li>
-  </ul>
-  <div class="tab-content">
-    <div class="tab-pane active" id="home">home</div>
-    <div class="tab-pane" id="profile"> 
-      <%= render :partial => 'form' %>
-    </div>
-    <div class="tab-pane" id="messages">messages</div>
-    <div class="tab-pane" id="settings">settings</div>
+<%= form_for @message, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="page-header">
+    <h1><%=t '.title', :default => ["Создать Рассылку"], :model => model_class.model_name.human %></h1>
   </div>
-</div>
+  <div class="new-message">
+    <ul class="nav nav-tabs">
+      <li><a href="#users-list" data-toggle="tab">Выбрать пользователей из списка</a></li>
+      <li><a href="#users-groups" data-toggle="tab">Отправить группе пользователей</a></li>
+      <li><a href="#users-custom" data-toggle="tab">Ручной ввод получателей</a></li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane active" id="users-list">
+        <%= render :partial => 'users_list', :locals=>{:f=>f} %>
+      </div>
+      <div class="tab-pane" id="users-groups"> 
+        <%= render :partial => 'users_groups', :locals=>{:f=>f} %>
+      </div>
+      <div class="tab-pane" id="users-custom"> 
+        <%= render :partial => 'users_custom', :locals=>{:f => f} %>
+      </div>
+    </div>
+  </div>
+  <%= render :partial => 'message_box', :locals => {:f => f} %>
+  <%= f.hidden_field :service_id, :value => current_service.id %>
+  <div class="new-message-buttons">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),messages_path, :class => 'btn' %>
+  </div>
+<% end %>

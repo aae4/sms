@@ -32,6 +32,7 @@ div {
 .scroll_checklist {
 	 overflow-y:hidden;
 	 overflow-y: scroll; 
+	 height: 200px;
 }
 .scroll_checklist  th{
 	text-align: left;

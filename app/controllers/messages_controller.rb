@@ -42,11 +42,13 @@ class MessagesController < ApplicationController
   # POST /messages.json
   def create
     @message = Message.new(params[:message])
-    groups = params[:group_ids]
+    groups = params[:group_ids] || []
     groups.each do |g|
       group = Group.find(g)
       group.users.each{|u| @message.users << u}
     end
+    custom_recipients = params[:custom_recipients] || []
+    #custom_recipients.split(",").each{|cr| }
     #@message_users.each{|x| @message.users << x}
     respond_to do |format|
       if @message.save

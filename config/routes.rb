@@ -5,11 +5,7 @@ Sms::Application.routes.draw do
 
   get "groups/show"
 
-  #get "users/index"
-
   get "users/new", :as => :users_new
-
-  #get "users/show"
 
   devise_for :services
 
@@ -22,6 +18,18 @@ Sms::Application.routes.draw do
   resources :messages
   resources :users
 
+  namespace :api do
+    resources :message do
+      collection do
+        get :all
+      end
+    end
+    resources :contacts do
+      collection do
+        get :all
+      end
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

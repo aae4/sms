@@ -5,5 +5,11 @@ ru:
         group:
           attributes:
             name:
-              blank: "Не может быть пустым"
+              blank: "Введите название группы"
               taken: "Группа с таким названием уже существует"
+        user:
+          attributes:
+              name:
+                blank: "Введите имя пользователя"
+              phone:
+                blank: "Введите номер телефона"

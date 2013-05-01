@@ -1,3 +1,10 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.in-select-table td, th{
+  padding: 0 10px 0 10px;
+}
+
+.under-td{
+  border-bottom:2px solid #005000;
+}

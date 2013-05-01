@@ -7,7 +7,7 @@
   <div class="accordion-inner">
     <div class="contact_list">
       <div class='scroll_checklist'>
-        <table>
+        <table class="in-select-table">
           <tr>
             <th>Имя</th>
             <th>Номер</th>
@@ -15,9 +15,9 @@
           </tr>
           <% for user in current_service.users %>
           <tr>
-              <td class="label label-success"><%= user.name %></td>
-              <td><%= user.phone %></td>
-              <td align="right"><%= check_box_tag "message[user_ids][]", user.id, !current_service.users.include?(user) %></td> 
+              <td class="under-td"><%= user.name %></td>
+              <td class="under-td"><%= user.phone %></td>
+              <td align="right"><%= check_box_tag "message[user_ids][]", user.id, @message.users.include?(user) %></td> 
           </tr>
           <% end %>
         </table>

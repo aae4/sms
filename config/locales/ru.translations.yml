@@ -1,0 +1,20 @@
+ru:    
+  users:
+    index:
+      title: 'Контакты'
+    new:
+      title: 'Добавление пользователя'
+    edit:
+      title: 'Редактирование пользователя'
+  messages:
+    index:
+      title: 'Мои сообщения'
+    new:
+      title: 'Созать сообщение'
+      create: "Создать"
+    edit:
+      title: 'Редактирвать сообщение'
+      create: "Применить"
+  groups:
+    index:
+      title: 'Группы контактов'

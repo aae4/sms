@@ -1,0 +1,18 @@
+<div class="page-header">
+  <h1>Личный кабинет</h1>
+</div>
+
+<div class="form-inline">
+
+  <div id="images-container">
+    <%= link_to image_tag("personal.png"), "" %>
+    <p id="personal-image-text"><%= link_to "Персональные данные", ""%></p>
+
+    <%= link_to image_tag("statistics.png"), "" , :class=>"statistics-image"%>
+    <p id="statistics-image-text", class="statistics-image" ><%= link_to "Статистика", ""%></p>
+        
+    <%= link_to image_tag("configurations.png"), "" , :class => "configurations-image" %>
+    <p id="configurations-image-text" class="configurations-image"><%= link_to "Настройки", ""%></p>
+  </div>
+
+</div>

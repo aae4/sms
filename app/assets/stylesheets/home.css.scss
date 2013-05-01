@@ -1,3 +1,72 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body{
+  background-image: url(background.jpg);
+  background-size: 100% auto;
+}
+
+.right-bar-cab{
+  height: 100px;
+  //background-color: #ffc40d;
+  width:220px;
+  padding:10px;
+  border:2px solid black;
+  margin:0 0 10px 0;
+}
+
+.right-bar-info{
+  //background-color: #ffc40d;
+  width:220px;
+  padding:10px;
+  border:2px solid black;
+  margin:0px;
+}
+
+.my_button{
+  width:200px;
+  height: 100px;
+}
+
+#images-container{
+  position: relative;
+}
+
+#personal-image-text{
+    z-index:100;
+    position:absolute;    
+    color:black;
+    font-size:20px;
+    font-weight:bold;
+    left:20px;
+    top:270px;
+}
+
+.statistics-image{
+  margin-left: 5px;
+}
+
+.configurations-image{
+  margin-left: 20px;
+}
+
+#statistics-image-text{
+    z-index:100;
+    position:absolute;    
+    color:black;
+    font-size:20px;
+    font-weight:bold;
+    left:320px;
+    top:270px;
+}
+
+#configurations-image-text{
+    z-index:100;
+    position:absolute;    
+    color:black;
+    font-size:20px;
+    font-weight:bold;
+    left:600px;
+    top:270px;
+}

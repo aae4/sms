@@ -11,6 +11,9 @@
   	<% @message.users.each do |u| %>
   		<li><%=u.name%></li>
   	<%end%>
+    <% @message.groups.each do |g|%>
+       <li><%= g.name %> (G)</li>
+    <%end%>
   </dd>
 </dl>
 
@@ -18,7 +21,7 @@
   <%= link_to t('.back', :default => t("helpers.links.back")),
               messages_path, :class => 'btn'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_message_path(@message), :class => 'btn' %>
+              edit_message_path(@message), :class => 'btn btn-primary' %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
               message_path(@message),
               :method => 'delete',

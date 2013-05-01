@@ -1,0 +1,9 @@
+
+  <h4>Последние сообщения:</h4>
+  <ul>
+    <% if service_signed_in? %>
+      <% current_service.messages.sort_by{|x| x.created_at}.each do |m| %>
+        <li><%= m.body %></li>
+      <% end %>
+    <% end %>
+  </ul>

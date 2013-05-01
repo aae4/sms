@@ -7,15 +7,15 @@
   <div class="accordion-inner">
     <div class="contact_group_list">
         <div class='scroll_checklist'>
-          <table>
+          <table class="in-select-table">
           <tr>
             <th>Название</th>
             <th>Выбрать</th>
           </tr>
           <% for group in current_service.groups %>
             <tr>
-                <td class="label label-success"><%= group.name %></td>
-                <td><%= check_box_tag "group_ids[]", group.id, !current_service.groups.include?(group) %></td>
+                <td class="under-td"><%= group.name %></td>
+                <td><%= check_box_tag "message[group_ids][]", group.id, @message.groups.include?(group) %></td>
             </tr>
           <% end %>
         </table>

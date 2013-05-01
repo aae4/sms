@@ -8,11 +8,12 @@ Sms::Application.routes.draw do
   get "users/new", :as => :users_new
 
   devise_for :services
+  get "home/cabinet", :as => "cabinet"
 
   get "home/index", :as => :home
   get "home/help", :as => :home_help
   
-  get "messages/new", :as => :messages_new
+  #get "messages/new", :as => :messages_new
   
   resources :groups
   resources :messages

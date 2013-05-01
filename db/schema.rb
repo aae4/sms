@@ -11,12 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130424124029) do
+ActiveRecord::Schema.define(:version => 20130501135305) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "token"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "service_id"
   end
 
   create_table "groups", :force => true do |t|
@@ -24,6 +25,11 @@ ActiveRecord::Schema.define(:version => 20130424124029) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "service_id"
+  end
+
+  create_table "groups_messages", :id => false, :force => true do |t|
+    t.integer "group_id"
+    t.integer "message_id"
   end
 
   create_table "groups_users", :id => false, :force => true do |t|
@@ -56,7 +62,6 @@ ActiveRecord::Schema.define(:version => 20130424124029) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
-    t.integer  "api_key_id"
   end
 
   add_index "services", ["email"], :name => "index_services_on_email", :unique => true

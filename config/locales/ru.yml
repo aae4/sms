@@ -1,5 +1,10 @@
 ru:
   activerecord:
+    attributes:
+      user:
+        title: Добавить пользователя
+        name: "Имя"
+        phone: "Номер телефона"
     errors:
       models:
         group:
@@ -13,3 +18,14 @@ ru:
                 blank: "Введите имя пользователя"
               phone:
                 blank: "Введите номер телефона"
+  will_paginate:
+    next_label: ">>"
+    previous_label: "<<"
+  helpers:
+    links:
+      edit: "Редактировать"
+      destroy: "Удалить"
+      new: "Создать"
+      cancel: "Отмена"
+      create: "Создать"
+      back: "Назад"

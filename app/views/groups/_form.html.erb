@@ -1,7 +1,7 @@
 <%= form_for @group, :html => { :class => 'form-horizontal' }, :validate => true do |f|%>
 
   <div class="control-group form-inline">
-    <%= f.label :name, :class => 'control-label' %>
+    <%= f.label "Название", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :name, :class => 'text_field' %>
       <%= f.hidden_field :service_id, :value => current_service.id %>
@@ -18,7 +18,7 @@
       <div class="accordion-inner">
         <div class="contact_list">
           <div class='scroll_checklist'>
-            <table>
+            <table class="in-select-table">
               <tr>
                 <th>Имя</th>
                 <th>Номер</th>
@@ -26,8 +26,8 @@
               </tr>
               <% for user in current_service.users %>
               <tr>
-                  <td class="label label-success"><%= user.name %></td>
-                  <td><%= user.phone %></td>
+                  <td class="under-td"><%= user.name %></td>
+                  <td class="under-td"><%= user.phone %></td>
                   <td align="right"><%= check_box_tag "group[user_ids][]", user.id, !current_service.users.include?(user) %></td> 
               </tr>
               <% end %>

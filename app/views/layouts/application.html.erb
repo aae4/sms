@@ -9,7 +9,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="navbar navbar-inverse">
+<div class="navbar">
 	<div class="navbar-inner">
 		<%= link_to "Sms-Sender", home_path, :class => 'brand'%>
 		<ul class="nav">
@@ -50,12 +50,29 @@
 	</div>
 </div>
 <div class="container">
+	<% flash.each do |name, msg| %>
+		<div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+			<a class="close" data-dismiss="alert">x</a>
+			<%= msg %>
+		</div>
+	<% end %>
 	<div class="row">
+
 	  <div class="bs-docs-sidebar"><!--%= render :partial => 'shared/leftbar' %--></div>
+
 		<div class="span9"><%= yield %></div>
+
 		<div class="right-bar span3">
-			<h2>SMS</h2>
-			<%= render :partial => 'shared/smsinfo'%>
+
+			<!--div class="col"-->
+				<div class = 'right-bar-cab'>
+					<%= render :partial => 'home/right_bar_cab' %>
+				</div>
+				<div class = 'right-bar-info'>
+					<%= render :partial => '/home/right_bar_info' %>
+				</div>
+			<!--/div-->
+
 		</div>
 	</div>
 </div>

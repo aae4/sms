@@ -3,8 +3,8 @@ class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.json
   def index
-    @messages = Message.where(:service_id => current_service.id)
-
+    @per_page = params[:per_page] || 2
+    @messages = Message.where(:service_id => current_service.id).paginate(:page => params[:page], :per_page => @per_page)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @messages }
@@ -42,11 +42,6 @@ class MessagesController < ApplicationController
   # POST /messages.json
   def create
     @message = Message.new(params[:message])
-    groups = params[:group_ids] || []
-    groups.each do |g|
-      group = Group.find(g)
-      group.users.each{|u| @message.users << u}
-    end
     custom_recipients = params[:custom_recipients] || []
     #custom_recipients.split(",").each{|cr| }
     #@message_users.each{|x| @message.users << x}

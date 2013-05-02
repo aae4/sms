@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
   # GET /messages.json
   def index
     @per_page = params[:per_page] || 2
-    @messages = Message.where(:service_id => current_service.id).paginate(:page => params[:page], :per_page => @per_page)
+    @messages = Message.reversed_order(current_service.id).paginate(:page => params[:page], :per_page => @per_page)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @messages }
@@ -41,6 +41,7 @@ class MessagesController < ApplicationController
   # POST /messages
   # POST /messages.json
   def create
+    params[:message][:custom_recipients] = params[:message][:custom_recipients].gsub(/, ?/, "|")
     @message = Message.new(params[:message])
     custom_recipients = params[:custom_recipients] || []
     #custom_recipients.split(",").each{|cr| }

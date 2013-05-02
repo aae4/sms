@@ -5,14 +5,14 @@
 <div class="form-inline">
 
   <div id="images-container">
-    <%= link_to image_tag("personal.png"), "" %>
-    <p id="personal-image-text"><%= link_to "Персональные данные", ""%></p>
+    <%= link_to image_tag("personal.png"), personal_path %>
+    <p id="personal-image-text"><%= link_to "Персональные данные", personal_path %></p>
 
-    <%= link_to image_tag("statistics.png"), "" , :class=>"statistics-image"%>
-    <p id="statistics-image-text", class="statistics-image" ><%= link_to "Статистика", ""%></p>
+    <%= link_to image_tag("statistics.png"), statistics_path , :class=>"statistics-image"%>
+    <p id="statistics-image-text", class="statistics-image" ><%= link_to "Статистика", statistics_path %></p>
         
-    <%= link_to image_tag("configurations.png"), "" , :class => "configurations-image" %>
-    <p id="configurations-image-text" class="configurations-image"><%= link_to "Настройки", ""%></p>
+    <%= link_to image_tag("configurations.png"), configurations_path , :class => "configurations-image" %>
+    <p id="configurations-image-text" class="configurations-image"><%= link_to "Настройки", configurations_path %></p>
   </div>
 
 </div>

@@ -9,9 +9,16 @@ Sms::Application.routes.draw do
 
   devise_for :services
   get "home/cabinet", :as => "cabinet"
+  get "home/personal", :as => "personal"
+  get "home/statistics", :as => "statistics"
+  get "home/configurations", :as => "configurations"
+
 
   get "home/index", :as => :home
   get "home/help", :as => :home_help
+
+  get "home/generate_api_key", :as => "generate_api_key"
+  get "home/api_commands", :as => "api_commands"
   
   #get "messages/new", :as => :messages_new
   
@@ -20,14 +27,24 @@ Sms::Application.routes.draw do
   resources :users
 
   namespace :api do
-    resources :message do
+    resources :messages do
       collection do
         get :all
+        get :create_message
       end
     end
     resources :contacts do
       collection do
         get :all
+        get :create_contact
+        get :delete_contact
+      end
+    end
+    resources :groups do
+      collection do
+        get :all
+        get :create_group
+        get :delete_group
       end
     end
   end

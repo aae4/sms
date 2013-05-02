@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130501135305) do
+ActiveRecord::Schema.define(:version => 20130502045056) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "token"
@@ -39,9 +39,10 @@ ActiveRecord::Schema.define(:version => 20130501135305) do
 
   create_table "messages", :force => true do |t|
     t.text     "body"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
     t.integer  "service_id"
+    t.text     "custom_recipients"
   end
 
   create_table "messages_users", :id => false, :force => true do |t|

@@ -28,7 +28,7 @@
               <tr>
                   <td class="under-td"><%= user.name %></td>
                   <td class="under-td"><%= user.phone %></td>
-                  <td align="right"><%= check_box_tag "group[user_ids][]", user.id, !current_service.users.include?(user) %></td> 
+                  <td align="right"><%= check_box_tag "group[user_ids][]", user.id, f.object.users.include?(user) %></td> 
               </tr>
               <% end %>
             </table>
@@ -37,5 +37,13 @@
       </div>
     </div>
   </div>
-  <%= f.submit "Создать", :class => 'btn btn-primary' %>
+
+  <div class="form-actions">
+    <%= f.submit "Сохранить", :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                groups_path, :class => 'btn' %>
+  </div>
+
+  <!--h4></h4-->
+  <!--%= f.submit "Сохранить", :class => 'btn btn-primary' %-->
 <% end %>

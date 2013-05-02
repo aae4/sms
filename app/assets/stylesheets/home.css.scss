@@ -4,7 +4,8 @@
 
 body{
   background-image: url(background.jpg);
-  background-size: 100% auto;
+  background-size: 100%;
+  //background-repeat: no-repeat;
 }
 
 .right-bar-cab{
@@ -69,4 +70,53 @@ body{
     font-weight:bold;
     left:600px;
     top:270px;
+}
+
+.config-group label{
+  font-size: 18px;
+} 
+
+.config-group input{
+  margin-left: 50px;
+  width: 300px;
+} 
+
+.config-group a{
+  color: green;
+} 
+
+.highlight{
+  height: 20px;
+  width: 700px;
+  color: green;
+  background: #edfbcf;
+  padding: 10px;
+  border: 1px solid #d3d5c3;
+  border-radius: 4px;
+}
+
+.highlight-black{
+  height: 30px;
+  width: 700px;
+  color: green;
+  //background: #edfbcf;
+  background: black;
+  padding: 15px;
+  border: 1px solid #d3d5c3;
+  border-radius: 4px;
+}
+
+.help-first{
+  width: 720px;
+  border: 1px solid black;
+}
+
+.help-first, th, td{
+  border: 1px solid black;
+  text-align: center;
+  padding: 5px;
+}
+
+.help-api-args{
+  text-align: left;
 }

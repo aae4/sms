@@ -1,2 +1,60 @@
-<h2>Help</h2>
-<p>Here will be some usefull information</p>
+<div class="page-header">
+  <h1><%=t '.title', :default => "Помощь" %></h1>
+</div>
+
+<h3 class="center">Принцип использования API</h3>
+Обращение к API происходит по протоколу HTTP посредством GET - запросов соедущего вида:
+<div class = "highlight">
+  <p class="high_p">http://localhost:3000/api/<b>OBJECT</b>/<b>COMMAND</b>?token=<b>your_token</b>&arg1=<b>ARG_1</b>&argN=<b>ARG_N</b>...</p>
+</div>
+<br/>
+<table class="help-first">
+  <thead>
+    <th>Название команды</th>
+    <th>Назначение</th>
+    <th>Принимаемые значения</th>
+  </thrad>
+  <tbody>
+    <tr>
+      <td><b>OBJECT</b></td>
+      <td>название модели</td>
+      <td>contacts, groups, messages</td>
+    </tr>
+    <tr>
+      <td><b>COMMAND</b></td>
+      <td>название метода</td>
+      <td><%= link_to "Список доступных команд", api_commands_path, :style => "color:blue" %></td>
+    </tr>
+    <tr>
+      <td><b>your_token</b></td>
+      <td>ключ доступа к API</td>
+      <td>указан в личном кабиенете пользователя</td>
+    </tr>
+    <tr>
+      <td><b>ARG_1</b>...<b>ARG_N</b></td>
+      <td>аргументы метода, отличаются для каждого метода</td>
+      <td><%= link_to "Список возможных аргументов и принимаемых значений",  api_commands_path ,:style => "color:blue"%></td>
+    </tr>
+  </tbody>
+</table>
+<h3>Примеры запросов:</h3>
+<b>Получить список контактов:</b>
+<div class = "highlight-black">
+  <p class="high_p">http://localhost:3000/api/contacts/all.xml?token=e6ccaee8da0d8c18a6e7f012f0ee5bcc</p>
+</div>
+<b>Получить список групп:</b>
+<div class = "highlight-black">
+  <p class="high_p">http://localhost:3000/api/groups/all.xml?token=e6ccaee8da0d8c18a6e7f012f0ee5bcc</p>
+</div>
+<b>Создать новый контакт</b>
+<div class = "highlight-black">
+  <p class="high_p">http://localhost:3000/api/contacts/create_contact.xml?token=e6ccaee8da0d8c18a6e7f012f0ee5bcc&name=Алексей&phone=89269654542</p>
+</div>
+<b>Создать группу</b>
+<div class = "highlight-black">
+  <p class="high_p">http://localhost:3000/api/contacts/delete_group.xml?token=e6ccaee8da0d8c18a6e7f012f0ee5bcc&id=1</p>
+</div>
+<b>Создать сообщение</b>
+<div class = "highlight-black">
+  <p class="high_p">http://localhost:3000/api/message/send_message.xml?token=e6ccaee8da0d8c18a6e7f012f0ee5bcc&body=Привет, как дела?&group_ids=1&user_ids=3,5,1</p>
+</div>

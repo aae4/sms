@@ -52,15 +52,22 @@
 }
 
 .pagination ul li a{
+  //background-color: black;
+  background-color: rgba(239, 247, 248, 0.51);
+  //color: white;
+  color: rgb(112, 92, 48);
+}
+
+.pagination ul li:first-child a, .pagination ul li:last-child a{
   background-color: black;
   color: white;
 }
 
-.pagination ul .disabled span{
+/*.pagination ul .disabled span{
   //background-color: rgb(219, 228, 226);
   background-color: green;
   color: white;
-}
+}*/
 
 .pagination ul .active span{
   background-color: rgb(221, 177, 0);
@@ -68,7 +75,8 @@
 }
 
 .pagination ul li a:hover{
-  background-color: green;
+  //background-color: green;
+  background-color: rgb(221, 177, 0);
 }
 
 select {
@@ -83,12 +91,19 @@ select {
 }
 
 select option {
-  background-color: rgba(255, 189, 21, 0.16);
-  //background-color: rgba(239, 247, 248, 0.51);
+  //background-color: rgba(255, 189, 21, 0.16);
+  background-color: rgba(239, 247, 248, 0.51);
   color: black;
   //text-shadow:0 1px 0 rgba(0,0,0,0.4);
 }
 
 .form-actions{
   background-color: rgba(245, 245, 245, 0);
+}
+
+.modal{
+  background-image: url(background.jpg);
+}
+.modal-footer{
+ background-image: url(background.jpg); 
 }

@@ -21,6 +21,19 @@ class GroupsController < ApplicationController
       end
     end  
   end
+
+  def update
+    @group=Group.find(params[:id])
+    respond_to do |format|
+      if @group.update_attributes(params[:group])
+        format.html {redirect_to :action => 'index', notice: 'Group was succesfully updated'}
+        format.json {render json: @group, status: :updated, location: @group}
+      else
+        format.html {rende action: 'edit'}
+        format.json {render json: @group.errors, status: :unprocessable_entity}
+      end
+    end
+  end
   
   def show
     @group = Group.find(params[:id])

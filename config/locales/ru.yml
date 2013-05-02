@@ -2,9 +2,17 @@ ru:
   activerecord:
     attributes:
       user:
-        title: Добавить пользователя
+        title: "Добавить пользователя"
         name: "Имя"
         phone: "Номер телефона"
+        created_at: "Дата создания"
+      message:
+        body: "Текст сообщения"
+        created_at: "Дата создания"
+      group:
+        name: "Название"
+        users: 'Контакты'
+        created_at: "Дата создания"
     errors:
       models:
         group:
@@ -22,6 +30,7 @@ ru:
     next_label: ">>"
     previous_label: "<<"
   helpers:
+    actions: "Действия"
     links:
       edit: "Редактировать"
       destroy: "Удалить"
@@ -29,3 +38,4 @@ ru:
       cancel: "Отмена"
       create: "Создать"
       back: "Назад"
+      confirm: "Вы уверены?"

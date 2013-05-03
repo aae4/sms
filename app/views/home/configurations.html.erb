@@ -4,6 +4,6 @@
 
 <div class="form-inline config-group">
   <label>Ключ доступа к API:</label>
-  <%= text_field_tag :api_key_field, current_service.api_key.token,  :class => 'text_field', :disabled => true %>
+  <%= text_field_tag :api_key_field, (current_service.api_key.blank? ? "" : current_service.api_key.token),  :class => 'text_field', :disabled => true %>
   <%= link_to "Сгенерировать новый ключ", generate_api_key_path, remote: :true,  :format => 'js' %>
 </div>

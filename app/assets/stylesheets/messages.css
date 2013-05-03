@@ -107,3 +107,20 @@ select option {
 .modal-footer{
  background-image: url(background.jpg); 
 }
+
+.alert-success{
+  width: 870px;
+  background-color: rgba(206, 195, 73, 0.7);
+  border-color: rgb(72, 184, 44);
+  color: rgb(9, 9, 9);
+}
+
+.btn-danger{
+  background-color: rgb(243, 192, 62);
+  background-image: linear-gradient(to bottom, rgb(255, 193, 34), #bd362f);
+}
+
+.btn-success{
+  background-color: rgb(243, 192, 62);
+  background-image: linear-gradient(to bottom, rgb(27, 224, 43), rgb(40, 60, 30));
+}

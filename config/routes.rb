@@ -24,6 +24,7 @@ Sms::Application.routes.draw do
   
   resources :groups
   resources :messages
+  match "messages/:id/send_msg" => "messages#send_msg", :as => "send_msg_message"
   resources :users
 
   namespace :api do

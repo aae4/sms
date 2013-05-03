@@ -36,9 +36,14 @@
             <% message.groups.each do |g|%>
               <li><%= g.name %> (G)</li>
             <%end%>
+            <% message.custom_recipients.split("|").each do |cr|%>
+              <li><%= cr %></li>
+            <%end%>
         	</ul>
         </td>
         <td>
+          <%= link_to t('.send', :default => t("helpers.links.send")),
+                      send_msg_message_path(message), :class => 'btn btn-mini btn-success' %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_message_path(message), :class => 'btn btn-mini btn-primary' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),

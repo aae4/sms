@@ -1,21 +1,21 @@
-<div class = 'signin-form span4'>
-<h2>Sign in</h2>
+<div class = 'signin-form'>
+  <h2>Вход</h2>
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div class="control-group form-inline">
-	  <%= f.label :email, :class => 'control-label'%>
-	  <div class="field"><%= f.email_field :email, :autofocus => true, :class => 'text_field'%></div>
-	
-	  <%= f.label :password, :class => 'control-label' %>
-	  <div class="field"><%= f.password_field :password, :class => 'text_field' %></div>
-  </div>
+  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+    <div class="control-group form-inline">
+  	  <%= f.label :email, :class => 'control-label'%>
+  	  <div class="field"><%= f.email_field :email, :autofocus => true, :class => 'text_field'%></div>
+  	
+  	  <%= f.label :password, :class => 'control-label' %>
+  	  <div class="field"><%= f.password_field :password, :class => 'text_field' %></div>
+    </div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
+    <% if devise_mapping.rememberable? -%>
+      <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+    <% end -%>
 
-  <div><%= f.submit "Sign in" %></div>
-<% end %>
+    <div><%= f.submit "Войти", :class => 'btn btn-danger' %></div>
+  <% end %>
+</div>
 
 <%= render "devise/shared/links" %>
-</div>

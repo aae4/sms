@@ -37,18 +37,43 @@ class MessagesController < ApplicationController
 
   def send_msg
     m = Message.find(params[:id])
+    out = 'Сообщение было успешно отправлено.'
+    # 
     m.users.each do |u|
-      output = Kernel.send(:`, "echo #{m.body} | gnokii --sendsms #{u.phone}")
+      output = `echo #{m.body} | gnokii --sendsms #{u.phone}`
+      #output = Kernel.send(:`, "echo #{m.body} | gnokii --sendsms #{u.phone}")
+      #if output.split("\n")[0] != "AT+CMGS=52"
+      if output.size == 0
+        logger.info("1-----------#{u.phone}---------------")
+        out = "Ваше сообщение не было отправлено или было отправлено не всем адресатам"
+        #out = output
+      end
     end
     m.groups.each do |g|
       g.users.each do |u|
-        output = Kernel.send(:`, "echo #{m.body} | gnokii --sendsms #{u.phone}")
+        output = `echo #{m.body} | gnokii --sendsms #{u.phone}`
+        #output = Kernel.send(:`, "echo #{m.body} | gnokii --sendsms #{u.phone}")
+        #if output.split("\n")[0] != "AT+CMGS=52"
+        if output.size == 0
+          logger.info("2-----------#{u.phone}---------------")
+          out = "Ваше сообщение не было отправлено или было отправлено не всем адресатам"
+        end
       end
     end
     m.custom_recipients.split("|").each do |phone|
-      output = Kernel.send(:`, "echo #{m.body} | gnokii --sendsms #{phone}")
+      #output = Kernel.send(:`, "echo #{m.body} | gnokii --sendsms #{phone}")
+      output = `echo #{m.body} | gnokii --sendsms #{phone}`
+      #if output.split("\n")[0] != "AT+CMGS=52"
+      if output.size == 0
+        logger.info("3-----------#{phone}---------------")
+        out = "Ваше сообщение не было отправлено или было отправлено не всем адресатам"
+      end
     end
-    redirect_to messages_url, notice: 'Сообщение было успешно отправлено.'
+    if out == 'Сообщение было успешно отправлено.'
+      redirect_to messages_url, notice: out#notice: 'Сообщение было успешно отправлено.'
+    else
+      redirect_to messages_url, :flash => {:error => out}
+    end
   end
 
   def create

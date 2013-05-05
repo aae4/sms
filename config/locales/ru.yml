@@ -1,6 +1,15 @@
 ru:
   activerecord:
     attributes:
+      service:
+        name: 'Имя'
+        surname: 'Фамилия'
+        patronymic: 'Отчество'
+        email: 'E-mail'
+        password: 'Пароль'
+        password_confirmation: 'Подтверждение пароля'
+        current_password: 'Текущий пароль'
+        remember_me: 'Запомнить меня'
       user:
         title: "Добавить пользователя"
         name: "Имя"
@@ -15,6 +24,14 @@ ru:
         created_at: "Дата создания"
     errors:
       models:
+        service:
+          attributes:
+            email:
+              invalid: 'Неверный формат'
+            password:
+              too_short: 'Длина пароля должна быть не менее 8 символов'
+            current_password:
+              invalid: 'Неверно введен текущий пароль'
         group:
           attributes:
             name:
@@ -40,3 +57,4 @@ ru:
       back: "Назад"
       confirm: "Вы уверены?"
       send: "Отправить"
+      update: 'Обновить'

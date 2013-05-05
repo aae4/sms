@@ -9,4 +9,8 @@ class Message < ActiveRecord::Base
   def self.reversed_order(service_id)
     where(:service_id => service_id).order('created_at DESC')
   end
+
+  def self.total_on(date)
+    where("date(created_at) = ?",date).size
+  end
 end

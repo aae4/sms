@@ -1,5 +1,6 @@
 <% if service_signed_in? %>
-  <%= current_service.email %> <br/>
+  <p><%= current_service.full_name %></p>
+  <p>E-mail: <%= current_service.email %></p>
   <%= link_to "Личный кабинет", cabinet_path %>
 <% else %>
   <%= link_to "Регистрация", new_service_registration_path %>

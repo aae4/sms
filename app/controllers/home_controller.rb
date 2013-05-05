@@ -1,5 +1,7 @@
+# encoding: utf-8
 class HomeController < ApplicationController
   respond_to :html, :js
+  before_filter :authenticate_service!, :only => [:generate_api_key]
 
   def index
     @services = Service.all

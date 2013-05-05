@@ -1,4 +1,18 @@
-ru:    
+ru:
+  devise:
+    registrations:
+      edit:
+        title: 'Изменить личные данные'
+      service:
+        updated: 'Личные данные были успешно обновлены'
+    sessions:
+      service:
+        signed_in: 'Добро пожаловать! Вы успешно вошли в систему.'
+        signed_out: 'Вы успешно вышли из системы.'
+    failure:
+      service:
+        unauthenticated: 'Только авторизированные пользователи могут просматривать эту страницу'
+      already_authenticated: 'В данный момент вы уже авторизованы'
   users:
     index:
       title: 'Контакты'
@@ -12,7 +26,7 @@ ru:
     index:
       title: 'Мои сообщения'
     new:
-      title: 'Созать сообщение'
+      title: 'Создать сообщение'
       create: "Создать"
     edit:
       title: 'Редактирвать сообщение'

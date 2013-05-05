@@ -1,13 +1,19 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
-<div id="user_nav">
-  <% if service_signed_in? %>
-    Signed in as <%= current_service.email %>
-    <%= link_to "Sign out", destroy_service_session_path, :method => :delete %>
-  <% else %>
-    <%= link_to "Sign up", new_service_registration_path %> or <%= link_to "sign in", new_service_session_path %>
-  <% end %>
+<div>
+  <!--%= render :partial => 'home/carusel'%-->
+  <h2>Мы рады приветствовать вас на портале SMS-Sender.</h2>
+  <% if !service_signed_in? %>
+    <p>Чтобы начать пользоваться сервисом, вам необходимо <%= link_to "войти", new_service_session_path, :style => "color:blue" %> или пройти 
+      <%= link_to "регистрацию", new_service_registration_path, :style => "color:blue" %>
+    <p/>
+    <% end %>
 </div>
-<!--%= render :partial => 'home/carusel'%-->
 
 
+  <!--div id="user_nav"-->
+    <!--% if service_signed_in? %-->
+      <!--%= current_service.email %-->
+      <!--%= link_to "Sign out", destroy_service_session_path, :method => :delete %-->
+    <!--% else %-->
+      <!--%= link_to "Sign up", new_service_registration_path %-->  <!--%= link_to "sign in", new_service_session_path %-->
+    <!--% end %-->
+  <!--/div-->

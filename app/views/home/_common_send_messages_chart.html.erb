@@ -1,0 +1,41 @@
+<div id="services_chart" style="width: 870px; height: 610px;">
+  <script type="text/javascript" charset="utf-8">
+    $(function () {
+      //$('#container').highcharts({
+      new Highcharts.Chart({
+          chart: {
+              renderTo: 'services_chart',
+              plotBackgroundColor: null,
+              plotBorderWidth: null,
+              plotShadow: false
+          },
+          title: {
+              text: 'Активность пользователей за 2013 г.'
+          },
+          tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage}%</b>',
+            percentageDecimals: 1
+          },
+          plotOptions: {
+              pie: {
+                  allowPointSelect: true,
+                  cursor: 'pointer',
+                  dataLabels: {
+                      enabled: true,
+                      color: '#000000',
+                      connectorColor: '#000000',
+                      formatter: function() {
+                          return '<b>'+ this.point.name +'</b>: '+ this.percentage +' %';
+                      }
+                  }
+              }
+          },
+          series: [{
+              type: 'pie',
+              name: 'процент отправленных сообщений',
+              data: <%= raw @data %>
+          }]
+      });
+    });
+  </script>
+</div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130505074953) do
+ActiveRecord::Schema.define(:version => 20130604163023) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "token"
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(:version => 20130505074953) do
     t.string   "name"
     t.string   "surname"
     t.string   "patronymic"
+    t.boolean  "admin"
   end
 
   add_index "services", ["email"], :name => "index_services_on_email", :unique => true

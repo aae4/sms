@@ -19,8 +19,8 @@
       },
       series: [{
         pointInterval: <%= 1.day * 1000 %>,
-        pointStart: <%= 3.weeks.ago.at_midnight.to_i * 1000 %>,
-        data: <%= (7.days.ago.to_date..Date.today).map { |date| Message.total_on(date).to_i}.inspect %>
+        pointStart: <%= DateTime.new(2013,3,1).at_midnight.to_i * 1000 %>,
+        data: <%= (DateTime.new(2013,3,1).to_date..Date.today).map { |date| current_service.messages.total_on(date).to_i}.inspect %>
        }]
     });
   });

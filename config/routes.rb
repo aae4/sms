@@ -11,6 +11,7 @@ Sms::Application.routes.draw do
   get "home/cabinet", :as => "cabinet"
   get "home/personal", :as => "personal"
   get "home/statistics", :as => "statistics"
+  get "home/admin_statistics", :as => "admin_statistics"
   get "home/configurations", :as => "configurations"
 
 

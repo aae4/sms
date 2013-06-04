@@ -7,13 +7,16 @@
 	<!-- Carousel items -->
 	<div class="carousel-inner">
 		<div class="active item">
-			<%= image_tag("car1.png") %>
+			<!--%= image_tag("car1.png") %-->
+			<%= render :partial => 'monthly_users_chart' %>
 		</div>
 		<div class="item">
-			<%= image_tag("car2.jpg") %>
+			<!--%= image_tag("car2.jpg") %-->
+			<%= render :partial => 'common_send_messages_chart' %>
 		</div>
 		<div class="item">
-			<%= image_tag("car3.jpg") %>
+			<!--%= image_tag("car3.jpg") %-->
+			<%= render :partial => 'totals_chart' %>
 		</div>
 	</div>
 	<!-- Carousel nav -->

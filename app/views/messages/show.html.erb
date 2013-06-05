@@ -14,9 +14,11 @@
     <% @message.groups.each do |g|%>
        <li><%= g.name %> (G)</li>
     <%end%>
-    <% @message.custom_recipients.split("|").each do |cr|%>
-       <li><%= cr %></li>
-    <%end%>
+    <% if !@message.custom_recipients.blank? %>
+      <% @message.custom_recipients.split("|").each do |cr|%>
+         <li><%= cr %></li>
+      <%end%>
+    <% end %>
   </dd>
 </dl>
 

@@ -14,4 +14,10 @@ class Service < ActiveRecord::Base
   def full_name
     "#{self.surname} #{self.name} #{self.patronymic}"
   end
+
+  def messagesByMonth(month)
+    count=0
+    self.messages.each{|message| count+= message.created_at.month==month ? 1 : 0}
+    return count
+  end
 end

@@ -11,17 +11,17 @@ class HomeController < ApplicationController
   def admin_statistics
     services = Service.all
     messages_n = Message.count
+    #How much in persents each user sends at all
     @data = services.map{|s| [s.email, (s.messages.count.to_f/messages_n).round(3)]}
-    @data2= [['Firefox',   45.0],
-     ['IE',       26.8],
-     {name: 'Chrome',
-      y: 12.8,
-      sliced: true,
-      selected: true
-      },
-      ['Safari',    8.5],
-      ['Opera',     6.2],
-      ['Others',   0.7]]
+    #How mych each user sends messages by month
+    @monthly_chart_data = []
+    services.each do |s|
+      byMonths = []
+      1.upto(12){|i| byMonths<<s.messagesByMonth(i)}
+      @monthly_chart_data << {name: s.email, data: byMonths}
+    end
+    @monthly_chart_data = @monthly_chart_data.to_json
+    #
   end
 
   def generate_api_key
